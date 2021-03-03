@@ -31,7 +31,8 @@ public class CuadradoMagico {
 
     public CuadradoMagico(int numero) {
 
-        this.numero = numero;
+        this.numero = 3;
+
         this.cuadrado = new int[numero][numero];
 
         for (int i = 0; i < cuadrado.length; i++) {
@@ -49,22 +50,51 @@ public class CuadradoMagico {
     }
 
     public boolean sumarFila() {
-        boolean cumpleSuma = true;
+        boolean Suma = true;
         int sumarFila = 0;
-        int constanteMagica = sumaTotal();
+        int resultado = sumaFinal();
         int a = 0;
-        while (a < numero && cumpleSuma) {
+        while (a < numero && Suma) {
             for (int b = 0; b < numero; b++) {
                 sumarFila += cuadrado[a][b];
             }
 
-            if (sumarFila != constanteMagica) {
-                cumpleSuma = false;
+            if (sumarFila != resultado) {
+                Suma = false;
             }
             a++;
             sumarFila = 0;
         }
-        return cumpleSuma;
+        return Suma;
     }
 
+    public boolean sumarColumna() {
+        boolean Suma = true;
+        int sumarColumna = 0;
+        int resultado = sumaFinal();
+        int a = 0;
+        while (a < numero && Suma) {
+            for (int b = 0; b < numero; b++) {
+                sumarColumna += cuadrado[a][b];
+            }
+
+            if (sumarColumna != resultado) {
+                Suma = false;
+            }
+            a++;
+            sumarColumna = 0;
+        }
+        return Suma;
+    }
+
+    public String imprimirCuadradoMagico() {
+        String cuadradoMagico = "";
+        for (int i = 0; i < numero; i++) {
+            for (int j = 0; j < numero; j++) {
+                cuadradoMagico += cuadrado[i][j] + "\t";
+            }
+            cuadradoMagico += "\n";
+        }
+        return cuadradoMagico;
+    }
 }
