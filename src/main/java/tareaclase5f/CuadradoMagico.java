@@ -25,16 +25,46 @@ Confirma los cambios y súbelos a github.
 public class CuadradoMagico {
 
     private static Random aleatorio = new Random();
-    private static int[][] numeros = new int[3][3];
+    private static int[][] cuadrado;
 
-    public CuadradoMagico(int[][] numeros) {
+    private static int numero;
 
-        for (int i = 0; i < numeros.length; i++) {
-            for (int j = 0; j < numeros[i].length; j++) {
-                numeros[i][j] = aleatorio.nextInt(9 - 1 + 1) + 1;
+    public CuadradoMagico(int numero) {
+
+        this.numero = numero;
+        this.cuadrado = new int[numero][numero];
+
+        for (int i = 0; i < cuadrado.length; i++) {
+            for (int j = 0; j < cuadrado[i].length; j++) {
+                cuadrado[i][j] = aleatorio.nextInt(9 - 1 + 1) + 1;
             }
         }
 
+    }
+
+    public int sumaFinal() {
+
+        int suma = numero * (numero * numero + 1) / 2;
+        return suma;
+    }
+
+    public boolean sumarFila() {
+        boolean cumpleSuma = true;
+        int sumarFila = 0;
+        int constanteMagica = sumaTotal();
+        int a = 0;
+        while (a < numero && cumpleSuma) {
+            for (int b = 0; b < numero; b++) {
+                sumarFila += cuadrado[a][b];
+            }
+
+            if (sumarFila != constanteMagica) {
+                cumpleSuma = false;
+            }
+            a++;
+            sumarFila = 0;
+        }
+        return cumpleSuma;
     }
 
 }
