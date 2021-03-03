@@ -50,11 +50,15 @@ public class Prueba {
         listaCuadrados.add(cuadrado14);
         listaCuadrados.add(cuadrado15);
 
-        
+        //Imprime su contenido por consola
         for (CuadradoMagico listaCuadrado : listaCuadrados) {
+
+            System.out.println("---------------------------");
             
-            System.out.println(listaCuadrado.imprimirCuadradoMagico()); 
-            
+            System.out.println(listaCuadrado.imprimirCuadradoMagico());
+
+            System.out.println("El cuadrado magico es: " + listaCuadrado.esCuadroMagico());
+
         }
     }
 

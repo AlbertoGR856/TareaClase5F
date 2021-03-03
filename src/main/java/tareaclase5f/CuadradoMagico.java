@@ -26,12 +26,13 @@ public class CuadradoMagico {
 
     private static Random aleatorio = new Random();
     private static int[][] cuadrado;
-
     private static int numero;
 
+    
+    //El método constructor de la clase inicializa la matriz con números aleatorios entre 1 y 9
     public CuadradoMagico(int numero) {
 
-        this.numero = 3;
+        this.numero = numero;
 
         this.cuadrado = new int[numero][numero];
 
@@ -43,6 +44,7 @@ public class CuadradoMagico {
 
     }
 
+    //Metodo que suma todos los valores del cuadrado magico
     public int sumaFinal() {
 
         int suma = numero * (numero * numero + 1) / 2;
@@ -99,6 +101,7 @@ public class CuadradoMagico {
     }
     
     
+    //Método que indique si la matriz es un cuadrado mágico
      public boolean esCuadroMagico() {
         return sumarFila() && sumarColumna();
     }
