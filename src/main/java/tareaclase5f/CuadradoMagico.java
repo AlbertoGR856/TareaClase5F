@@ -24,12 +24,12 @@ Confirma los cambios y súbelos a github.
  */
 public class CuadradoMagico {
 
-     private static Random aleatorio = new Random();
+    private static Random aleatorio = new Random();
     private static int[][] numeros = new int[3][3];
 
     public CuadradoMagico(int[][] numeros) {
-        
-            for (int i = 0; i < numeros.length; i++) {
+
+        for (int i = 0; i < numeros.length; i++) {
             for (int j = 0; j < numeros[i].length; j++) {
                 numeros[i][j] = aleatorio.nextInt(9 - 1 + 1) + 1;
             }
