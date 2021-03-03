@@ -28,7 +28,6 @@ public class CuadradoMagico {
     private static int[][] cuadrado;
     private static int numero;
 
-    
     //El método constructor de la clase inicializa la matriz con números aleatorios entre 1 y 9
     public CuadradoMagico(int numero) {
 
@@ -89,6 +88,44 @@ public class CuadradoMagico {
         return Suma;
     }
 
+    public boolean sumarDiagonalPrincipal() {
+        boolean cumpleSuma = true;
+        int sumarDiagonalPrincipal = 0;
+        int resultado = sumaFinal();
+
+        int a = 0, b = 0;
+        while (a < numero && b < numero) {
+            sumarDiagonalPrincipal += cuadrado[a][b];
+            a++;
+            b++;
+        }
+        if (sumarDiagonalPrincipal != resultado) {
+            cumpleSuma = false;
+        }
+
+        return cumpleSuma;
+    }
+
+    public boolean SumarDiagonalSecundaria() {
+        boolean cumpleSuma = true;
+        int sumarDiagonalSecundaria = 0;
+        int resultado = sumaFinal();
+
+        int a = 0;
+        int b = numero - 1;
+        
+        while (a < numero && b >= 0) {
+            sumarDiagonalSecundaria += cuadrado[a][b];
+            a++;
+            b--;
+        }
+        if (sumarDiagonalSecundaria != resultado) {
+            cumpleSuma = false;
+        }
+
+        return cumpleSuma;
+    }
+
     public String imprimirCuadradoMagico() {
         String cuadradoMagico = "";
         for (int i = 0; i < numero; i++) {
@@ -99,10 +136,9 @@ public class CuadradoMagico {
         }
         return cuadradoMagico;
     }
-    
-    
+
     //Método que indique si la matriz es un cuadrado mágico
-     public boolean esCuadroMagico() {
+    public boolean esCuadroMagico() {
         return sumarFila() && sumarColumna();
     }
 }
