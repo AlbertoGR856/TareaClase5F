@@ -25,20 +25,21 @@ Confirma los cambios y súbelos a github.
 public class CuadradoMagico {
 
     private static Random aleatorio = new Random();
-    private static int[][] cuadrado;
-    private static int numero;
+    private int[][] cuadrado;
+    private int numero;
 
     //El método constructor de la clase inicializa la matriz con números aleatorios entre 1 y 9
     public CuadradoMagico(int numero) {
 
         this.numero = numero;
 
-        this.cuadrado = new int[numero][numero];
+        this.cuadrado = new int[3][3];
 
         for (int i = 0; i < cuadrado.length; i++) {
             for (int j = 0; j < cuadrado[i].length; j++) {
-                cuadrado[i][j] = aleatorio.nextInt(9 - 1 + 1) + 1;
+                cuadrado[i][j] = (int) (Math.random() * 9 + 1);
             }
+
         }
 
     }
@@ -113,7 +114,7 @@ public class CuadradoMagico {
 
         int a = 0;
         int b = numero - 1;
-        
+
         while (a < numero && b >= 0) {
             sumarDiagonalSecundaria += cuadrado[a][b];
             a++;
@@ -138,7 +139,8 @@ public class CuadradoMagico {
     }
 
     //Método que indique si la matriz es un cuadrado mágico
-    public boolean esCuadroMagico() {
-        return sumarFila() && sumarColumna();
+    public boolean esCuadradoMagico() {
+        return sumarFila() && sumarColumna() && sumarDiagonalPrincipal() && SumarDiagonalSecundaria();
     }
+
 }
