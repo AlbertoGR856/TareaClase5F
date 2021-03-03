@@ -97,4 +97,9 @@ public class CuadradoMagico {
         }
         return cuadradoMagico;
     }
+    
+    
+     public boolean esCuadroMagico() {
+        return sumarFila() && sumarColumna();
+    }
 }
